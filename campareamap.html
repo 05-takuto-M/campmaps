@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>camp area map</title>
+    <meta charset="utf-8">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            background: #333;
+        }
+
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-size: 50%;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>キャンプ場MAP</h1>
+    <div id="myMap" style='width:100vw;height:98vh;'></div>
+    <div id='printoutPanel'></div>
+
+
+    <!-- [ infobox Object ] https://msdn.microsoft.com/en-us/library/mt712658.aspx -->
+    <script
+        src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key='
+        async defer></script>
+    <script>
+        //Maps Init
+
+        function GetMap() {
+
+            let map = new Microsoft.Maps.Map('#myMap', {
+                center: new Microsoft.Maps.Location(42.66501439593862, 141.0964063136309),
+                zoom: 9
+            });
+
+            //Set:Infobox
+            let location1 = map.getCenter();
+            let infobox = new Microsoft.Maps.Infobox(location1, {
+                title: 'ビレッジ大滝',
+                description: '<img src="https://www.bingmapsportal.com/Content/images/poi_custom.png" align="left" style="margin-right:1px;"/>〒052-0303 北海道伊達市大滝区三階滝町 <a href="https://village-ootaki.com/" target="_blank">URL</a>'
+            });
+            //Set:Infobox
+            let location2 = new Microsoft.Maps.Location(42.795759813619156, 140.7862337627219);
+            let infobox2 = new Microsoft.Maps.Infobox(location2, {
+                title: '真狩キャンプ場',
+                description: '<img src="https://www.bingmapsportal.com/Content/images/poi_custom.png" align="left" style="margin-right:1px;"/>〒048-1605 北海道虻田郡真狩村社 <a href="https://www.vill.makkari.lg.jp/kanko/asobu/natural_park/camp_site/" target="_blank">URL</a>'
+            });
+            //Set:Infobox
+            let location3 = new Microsoft.Maps.Location(42.93401974794055, 141.1528255392921);
+            let infobox3 = new Microsoft.Maps.Infobox(location3, {
+                title: '札幌市定山渓自然の村',
+                description: '<img src="https://www.bingmapsportal.com/Content/images/poi_custom.png" align="left" style="margin-right:1px;"/>〒061-2301 北海道札幌市南区定山渓 <a href="https://www.sj-naturevillage.jp/" target="_blank">URL</a>'
+            });
+            //Set:Infobox
+            let location4 = new Microsoft.Maps.Location(42.75532149631728, 141.41121760111193);
+            let infobox4 = new Microsoft.Maps.Infobox(location4, {
+                title: 'モラップキャンプ場',
+                description: '<img src="https://www.bingmapsportal.com/Content/images/poi_custom.png" align="left" style="margin-right:1px;"/>〒066-0283 北海道千歳市 支笏湖温泉 <a href="https://www.qkamura.or.jp/shikotsu/camp/" target="_blank">URL</a>'
+            });
+            //Set:Infobox
+            let location5 = new Microsoft.Maps.Location(42.831517433597796, 140.62099581052902);
+            let infobox5 = new Microsoft.Maps.Infobox(location5, {
+                title: 'ニセコサヒナキャンプ場',
+                description: '<img src="https://www.bingmapsportal.com/Content/images/poi_custom.png" align="left" style="margin-right:1px;"/>〒048-1321 北海道磯谷郡蘭越町湯里２２４−１９ <a href="https://sahina-camp.com/" target="_blank">URL</a>'
+            });
+
+            //Add:Infobox
+            infobox.setMap(map); //Add infobox to Map
+            infobox2.setMap(map); //Add infobox to Map
+            infobox3.setMap(map); //Add infobox to Map
+            infobox4.setMap(map); //Add infobox to Map
+            infobox5.setMap(map); //Add infobox to Map
+
+
+
+
+        }
+
+
+
+    </script>
+
+
+    <style>
+        /* Infobox Style */
+        .Infobox .Infobox2 {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            max-width: 200px;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 12px;
+            pointer-events: auto !important;
+        }
+
+        .Infobox .Infobox2 .title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</body>
+
+</html>
